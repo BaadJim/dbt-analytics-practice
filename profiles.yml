@@ -1,0 +1,11 @@
+analytics_practice:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: dev.duckdb
+      threads: 4
+    ci:
+      type: duckdb
+      path: "{{ env_var('DUCKDB_PATH', '/tmp/ci_pipeline.duckdb') }}"
+      threads: 2

@@ -1,0 +1,12 @@
+# Ignore DuckDB databases
+*.duckdb
+*.db
+
+# Ignore dbt compilation and log folders
+target/
+logs/
+dbt_packages/
+
+# Ignore Python environments and caches
+__pycache__/
+.venv/

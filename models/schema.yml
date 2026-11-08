@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_sales
+    description: "Staged sales data loaded from the raw seed file."
+    columns:
+      - name: order_id
+        description: "The primary key for the order."
+        tests:
+          - unique
+          - not_null
+      
+      - name: customer_id
+        tests:
+          - not_null
+      
+      - name: amount
+        tests:
+          - not_null
