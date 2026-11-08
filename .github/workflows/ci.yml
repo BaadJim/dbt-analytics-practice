@@ -1,0 +1,30 @@
+name: dbt Data Quality Checks
+
+# 1. When should the robot wake up?
+on:
+  push:
+    branches:
+      - main
+
+# 2. What should it do?
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Download your code
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dbt and DuckDB
+        run: pip install dbt-duckdb
+
+      - name: 🚀 Build and Test Pipeline
+        run: |
+          dbt seed
+          dbt run
+          dbt test
